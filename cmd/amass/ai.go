@@ -10,6 +10,8 @@ import (
 	"strings"
 )
 
+const aiUsageMsg = "ai to Enter AI Interactive Mode"
+
 func main() {
 	reader := bufio.NewReader(os.Stdin)
 
