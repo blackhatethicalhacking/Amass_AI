@@ -119,6 +119,21 @@ func main() {
 		fmt.Fprintf(color.Error, "%s\n", format.Version)
 		return
 	}
+// Check if the Amass AI flag is set
+	if flag.Lookup("ai").Value.String() == "true" {
+		// Create a new AmassAI object
+		ai := amass.NewAmassAI(config.DefaultConfig())
+
+		// Run the AmassAI object and output the results
+		output := ai.Run()
+		format.List("AmassAI", output)
+	} else {
+		// Create a new Amass object
+		a, err := runner.New(&options)
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
 
 	switch os.Args[1] {
 	case "db":
