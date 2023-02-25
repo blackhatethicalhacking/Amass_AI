@@ -33,7 +33,10 @@ import (
 	"sort"
 	"strings"
 	"time"
-
+	"bufio" //added by SaintDruG for ai
+	"encoding/json" //added by SaintDruG for ai
+	"net/http" //added by SaintDruG for ai
+        "github.com/blackhatethicalhacking/Amass_AI/cmd/amass" //will import also ai.go
 	"github.com/OWASP/Amass/v3/config"
 	"github.com/OWASP/Amass/v3/datasrcs"
 	"github.com/OWASP/Amass/v3/format"
