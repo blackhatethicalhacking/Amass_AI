@@ -48,7 +48,7 @@ import (
 )
 
 const (
-	mainUsageMsg         = "intel|enum|viz|track|db [options]"
+	mainUsageMsg         = "intel|enum|viz|track|db|ai [options]"
 	exampleConfigFileURL = "https://github.com/OWASP/Amass/blob/master/examples/config.ini"
 	userGuideURL         = "https://github.com/OWASP/Amass/blob/master/doc/user_guide.md"
 	tutorialURL          = "https://github.com/OWASP/Amass/blob/master/doc/tutorial.md"
@@ -76,6 +76,7 @@ func commandUsage(msg string, cmdFlagSet *flag.FlagSet, errBuf *bytes.Buffer) {
 	if msg == mainUsageMsg {
 		g.Fprintf(color.Error, "\nSubcommands: \n\n")
 		g.Fprintf(color.Error, "\t%-11s - Discover targets for enumerations\n", "amass intel")
+		g.Fprintf(color.Error, "\t%-11s - Discover targets using AI instantly\n", "amass ai")
 		g.Fprintf(color.Error, "\t%-11s - Perform enumerations and network mapping\n", "amass enum")
 		g.Fprintf(color.Error, "\t%-11s - Visualize enumeration results\n", "amass viz")
 		g.Fprintf(color.Error, "\t%-11s - Track differences between enumerations\n", "amass track")
@@ -119,6 +120,8 @@ func main() {
 	switch os.Args[1] {
 	case "db":
 		runDBCommand(os.Args[2:])
+	case "ai":
+		runaiCommand(os.Args[2:])
 	case "enum":
 		runEnumCommand(os.Args[2:])
 	case "intel":
