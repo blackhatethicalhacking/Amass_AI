@@ -1,4 +1,4 @@
-module github.com/OWASP/Amass/v3
+module github.com/blackhatethicalhacking/Amass_AI/v3
 
 go 1.18
 
